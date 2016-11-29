@@ -1,6 +1,5 @@
 <?php
 
-use GuzzleHttp\Psr7\Stream;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -11,6 +10,22 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class TaskControllerTest extends TestCase
 {
     use DatabaseMigrations;
+
+    protected $apiResult = '[{
+"name": "Suscipit qui vitae voluptatem illo unde neque commodi.",
+"done": true,
+"priority": 5
+},
+{
+    "name": "Quia et dolores et.",
+"done": true,
+"priority": 8
+},
+{
+    "name": "Quaerat dicta aperiam unde dicta ut repellendus excepturi necessitatibus.",
+"done": true,
+"priority": 5
+}]';
 
     /**
      * Mocking
@@ -50,21 +65,7 @@ class TaskControllerTest extends TestCase
      */
     public function testExample()
     {
-        $stream = GuzzleHttp\Psr7\stream_for('{"data" : [{
-"name": "Suscipit qui vitae voluptatem illo unde neque commodi.",
-"done": true,
-"priority": 5
-},
-{
-"name": "Quia et dolores et.",
-"done": true,
-"priority": 8
-},
-{
-"name": "Quaerat dicta aperiam unde dicta ut repellendus excepturi necessitatibus.",
-"done": true,
-"priority": 5
-}]}');
+        $stream = GuzzleHttp\Psr7\stream_for('{"data" : '. $this->apiResult . ' }');
 
         $response = new \GuzzleHttp\Psr7\Response(
             200,
