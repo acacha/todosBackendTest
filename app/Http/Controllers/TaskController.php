@@ -27,8 +27,8 @@ class TaskController extends Controller
 
     public function index()
     {
-        $tasks = \GuzzleHttp\json_decode($this->client->request('GET',$this->urlTodosBakend)->getBody())->data;
-//        dd($tasks);
+//        dd(\GuzzleHttp\json_decode($this->client->request('GET',$this->urlTodosBakend)->getBody())->data);
+        $tasks = collect(\GuzzleHttp\json_decode($this->client->request('GET',$this->urlTodosBakend)->getBody())->data);
         return view('tasks')->with('tasks', $tasks);
     }
 }
