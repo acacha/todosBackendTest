@@ -27,11 +27,11 @@
 					<tbody>
 
 					@foreach ($tasks as $task)
-						<tr v-for="(todo, index) in filteredTodos">
+						<tr>
 							<td>#</td>
 							<td>{{ $task->name }}</td>
 							<td>{{ $task->priority }}</td>
-							<td>{{ $task->doe }}</td>
+							<td>{{ $task->done }}</td>
 							<td>
 								<div class="progress progress-xs">
 									<div class="progress-bar progress-bar-danger" style="width: 55%"></div>
