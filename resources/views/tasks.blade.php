@@ -26,9 +26,9 @@
 					</thead>
 					<tbody>
 
-					@foreach ($tasks as $task)
+					@foreach ($tasks as $key => $task)
 						<tr>
-							<td>#</td>
+							<td>{{ $key +1 }}</td>
 							<td>{{ $task->name }}</td>
 							<td>{{ $task->priority }}</td>
 							<td>{{ $task->done }}</td>
