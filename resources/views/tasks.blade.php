@@ -1,4 +1,11 @@
+@extends('adminlte::layouts.app')
 
+@section('htmlheader_title')
+	Tasques
+@endsection
+
+
+@section('main-content')
 	<div>
 		<div class="box">
 			<div class="box-header with-border">
@@ -59,3 +66,4 @@
 			</div>
 		</div>
 	</div>
+@endsection
